@@ -1,15 +1,21 @@
 version: '2'
 
 services:
-  WEB:
-    image: ubuntu
-    container_name: WEB
+  php:
+    image: gonzalo123/php7
+    container_name: php
     ports:
      - "80:80"
     restart: always
     environment:
-     XDEBUG_CONFIG: remote_host=192.168.1.104
+     #XDEBUG_CONFIG: remote_host=192.168.1.104
+     XDEBUG_CONFIG: remote_host=10.237.106.160
      X_DEBUG: 1
     volumes:
      - /Users/gonzalo/work/experiments/Docker/code:/mnt/code
      - /Users/gonzalo/work/experiments/Docker/log:/var/log
+  node:
+    image: gonzalo123/node
+    container_name: node
+    ports:
+     - "8080:8080"

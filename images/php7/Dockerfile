@@ -7,7 +7,7 @@ RUN update-locale LANG=es_ES.UTF-8
 RUN apt-get update -y
 RUN apt-get install -y git curl apache2 php7.0 libapache2-mod-php7.0 php7.0-mcrypt php7.0-pgsql php-xdebug
 
-RUN mkdir /mnt/code;
+RUN mkdir -p /mnt/code
 
 COPY ./etc/apache/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY ./etc/apache2.conf /etc/apache2/apache2.conf

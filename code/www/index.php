@@ -6,7 +6,9 @@ use Silex\Application;
 $app = new Application(['debug' => getenv('X_DEBUG') == 1 ? true : false]);
 
 $app->get("/", function () {
-    return "Hello";
+    $content = file_get_contents("http://node:8080/");
+
+    return "Hello world from php. " . $content;
 });
 
 $app->get("/api/hello", function (Application $app) {
